@@ -2,46 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Updated viewport meta tag -->
+    <!-- Responsive meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    
+
     <title>Truffle Media</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/path/to/favicon.ico">
 
     <style>
-        body {
-            background-image: url('TMT.png'); /* Ensure the path is correct */
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+        html, body {
             margin: 0;
             padding: 0;
             height: 100%;
+        }
+
+        body {
+            /* Dynamic responsive background image */
+            background-image: url('TMT.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top center;
+                background-size: contain;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: 100% auto;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Salesforce Embedded Messaging Scripts -->
     <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US';
 
-			embeddedservice_bootstrap.init(
-				'00DKd00000G9eEQ',
-				'Truffle_Media_Bot',
-				'https://tr1741229348943.my.site.com/ESWTruffleMediaBot1750675913035',
-				{
-					scrt2URL: 'https://tr1741229348943.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://tr1741229348943.my.site.com/ESWTruffleMediaBot1750675913035/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+                embeddedservice_bootstrap.init(
+                    '00DKd00000G9eEQ',
+                    'Truffle_Media_Bot',
+                    'https://tr1741229348943.my.site.com/ESWTruffleMediaBot1750675913035',
+                    {
+                        scrt2URL: 'https://tr1741229348943.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
+    <script type='text/javascript' src='https://tr1741229348943.my.site.com/ESWTruffleMediaBot1750675913035/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
